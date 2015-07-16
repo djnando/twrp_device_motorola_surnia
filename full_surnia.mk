@@ -20,6 +20,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
+# Necessary to mount a PC
+$(call inherit-product, build/target/product/full.mk)
+
 # Inherit from device.mk
 $(call inherit-product, device/motorola/surnia/device.mk)
 
@@ -29,5 +32,7 @@ PRODUCT_NAME := full_surnia
 PRODUCT_BRAND := motorola
 PRODUCT_MODEL := surnia
 PRODUCT_MANUFACTURER := motorola
+
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 $(call inherit-product-if-exists, vendor/motorola/surnia/surnia-vendor.mk)

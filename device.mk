@@ -26,3 +26,21 @@ PRODUCT_COPY_FILES += \
 # Prebuilt
 PRODUCT_COPY_FILES += \
      $(call find-copy-subdir-files,*,${LOCAL_PATH}/prebuilt/system,system)
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.lcd_density=240
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.logkit.ctrlcode=0 \
+    ro.usb.mtp=0x2e82 \
+    ro.usb.mtp_adb=0x2e76 \
+    ro.usb.ptp=0x2e83 \
+    ro.usb.ptp_adb=0x2e84 \
+    ro.usb.bpt=0x2ec1 \
+    ro.usb.bpt_adb=0x2ec5 \
+    ro.usb.bpteth=0x2ec3 \
+    ro.usb.bpteth_adb=0x2ec6
+
+# set default USB configuration
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    persist.sys.usb.config=mtp
